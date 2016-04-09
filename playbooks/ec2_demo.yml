@@ -15,6 +15,9 @@
     with_fileglob:
       - "{{  ENV  }}_vars/all/*.yml"
 
+  - name: Print vars
+    debug: mag="{{  vars  }}"
+
   - name: Abort if aws_access_key variable not set
     fail: msg="aws_access_key is missing, aborting - - -"
     when: aws_access_key is not defined
