@@ -23,6 +23,11 @@
     with_fileglob:
       - "{{  ENV  }}_vars/all/*.yml"
 
+  - name:  Include Vars
+    debug: msg="{{  item  }}"
+    with_fileglob:
+      - "{{  ENV  }}_vars/all/*.yml"
+
   - name: Provision a set of instances
     ec2:
       aws_access_key: "{{  aws_access_key  }}"
