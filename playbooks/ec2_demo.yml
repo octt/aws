@@ -10,6 +10,16 @@
     fail: msg="Required -e=[dev|prod], aborting - - -"
     when: ENV is not defined
 
+  - name:  Include Vars
+    include_vars: "{{  item  }}"
+    with_fileglob:
+      - "{{  ENV  }}_vars/all/*.yml"
+
+  - name:  Var Files Imported
+    debug: msg="{{  item  }}"
+    with_fileglob:
+      - "{{  ENV  }}_vars/all/*.yml"
+
   - name: Abort if aws_access_key variable not set
     fail: msg="aws_access_key is missing, aborting - - -"
     when: aws_access_key is not defined
@@ -17,16 +27,6 @@
   - name: Abort if aws_secret_key variable not set
     fail: msg="aws_secret_key is missing, aborting - - -"
     when: aws_secret_key is not defined
-
-  - name:  Include Vars
-    include_vars: "{{  item  }}"
-    with_fileglob:
-      - "{{  ENV  }}_vars/all/*.yml"
-
-  - name:  Include Vars
-    debug: msg="{{  item  }}"
-    with_fileglob:
-      - "{{  ENV  }}_vars/all/*.yml"
 
   - name: Provision a set of instances
     ec2:
