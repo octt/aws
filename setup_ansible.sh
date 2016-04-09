@@ -10,4 +10,4 @@ sudo apt-get install -y ansible
 
 sudo easy_install pip
 
-sudo pip intall aws
+sudo pip install aws
