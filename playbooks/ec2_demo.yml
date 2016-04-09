@@ -16,7 +16,7 @@
       - "{{  ENV  }}_vars/all/*.yml"
 
   - name: Print vars
-    debug: mag="{{  vars  }}"
+    debug: msg="{{  vars  }}"
 
   - name: Abort if aws_access_key variable not set
     fail: msg="aws_access_key is missing, aborting - - -"
