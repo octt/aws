@@ -11,3 +11,5 @@ sudo apt-get install -y ansible
 sudo easy_install pip
 
 sudo pip install aws
+
+curl https://raw.github.com/ansible/ansible/devel/contrib/inventory/ec2.py
