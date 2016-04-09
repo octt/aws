@@ -20,11 +20,11 @@
 
   - name: Abort if aws_access_key variable not set
     fail: msg="aws_access_key is missing, aborting - - -"
-    when: aws_access_key is not defined
+    when: aws_access_key_id is not defined
 
   - name: Abort if aws_secret_key variable not set
     fail: msg="aws_secret_key is missing, aborting - - -"
-    when: aws_secret_key is not defined
+    when: aws_secret_access_key is not defined
 
   - name: Provision a set of instances
     ec2:
