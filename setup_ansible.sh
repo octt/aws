@@ -10,6 +10,6 @@ sudo apt-get install -y ansible
 
 sudo easy_install pip
 
-sudo pip install aws
+sudo pip install aws boto3
 
-curl https://raw.github.com/ansible/ansible/devel/contrib/inventory/ec2.py
+wget https://raw.github.com/ansible/ansible/devel/contrib/inventory/ec2.py
