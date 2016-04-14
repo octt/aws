@@ -1,15 +1,19 @@
----
+- hosts: localhost
+  connection: local
+  gather_facts: False
 
-- name:  Create MariaDB
-  rds:
-    command: create
-    instance_name: new-database
-    db_engine: MySQL
-    size: 5
-    instance_type: db.t2.micro
-    username: mysql_admin
-    password: 1nsecure
-    region: us-west-2
-    tags:
-      Environment: testing
-      Application: cms
+  tasks:
+
+  - name:  Create MariaDB
+    rds:
+      command: create
+      instance_name: new-database
+      db_engine: MySQL
+      size: 5
+      instance_type: db.t2.micro
+      username: mysql_admin
+      password: 1nsecure
+      region: us-west-2
+      tags:
+        Environment: testing
+        Application: cms
