@@ -4,6 +4,27 @@
 
   tasks:
 
+  - name: Abort if ENV variable not set
+    fail: msg="Required -e=[dev|prod], aborting - - -"
+    when: ENV is not defined
+
+  - name:  Include Vars
+    include_vars: "{{  item  }}"
+    with_fileglob:
+      - "{{  ENV  }}_vars/all/*.yml"
+
+  - name:  showvars
+    debug: msg="showvar {{  aws_access_key  }}"
+
+  - name: Abort if aws_access_key variable not set
+    fail: msg="aws_access_key is missing, aborting - - -"
+    when: aws_access_key is not defined
+
+  - name: Abort if aws_secret_key variable not set
+    fail: msg="aws_secret_key is missing, aborting - - -"
+    when: aws_secret_key is not defined
+
+
   - name:  Create MariaDB
     rds:
       aws_access_key: "{{  aws_access_key  }}"
