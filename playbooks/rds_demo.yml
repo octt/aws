@@ -6,6 +6,8 @@
 
   - name:  Create MariaDB
     rds:
+      aws_access_key: "{{  aws_access_key  }}"
+      aws_secret_key: "{{  aws_secret_key  }}"
       command: create
       instance_name: new-database
       db_engine: MySQL
