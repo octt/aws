@@ -1,7 +1,7 @@
 ---
 
 - name:  Create MariaDB
-- rds:
+  rds:
     command: create
     instance_name: new-database
     db_engine: MySQL
